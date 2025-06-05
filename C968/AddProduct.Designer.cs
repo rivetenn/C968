@@ -273,7 +273,7 @@
             Controls.Add(textBox2);
             Controls.Add(label1);
             Name = "AddProduct";
-            Text = "AddProduct";
+            Text = "Add Products";
             ResumeLayout(false);
             PerformLayout();
         }

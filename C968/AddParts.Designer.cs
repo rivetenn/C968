@@ -217,7 +217,7 @@
             Controls.Add(radioButton1);
             Controls.Add(label1);
             Name = "AddParts";
-            Text = "Form1";
+            Text = "Add Parts";
             Load += AddParts_Load;
             ResumeLayout(false);
             PerformLayout();

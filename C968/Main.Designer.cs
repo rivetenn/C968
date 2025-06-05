@@ -186,7 +186,7 @@
             button9.Text = "Search";
             button9.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -207,8 +207,8 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Main";
+            Text = "Main Screen";
             ResumeLayout(false);
             PerformLayout();
         }

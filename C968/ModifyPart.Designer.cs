@@ -215,7 +215,7 @@
             Controls.Add(radioButton1);
             Controls.Add(label1);
             Name = "ModifyPart";
-            Text = "ModifyPart";
+            Text = "Modify Parts";
             ResumeLayout(false);
             PerformLayout();
         }
