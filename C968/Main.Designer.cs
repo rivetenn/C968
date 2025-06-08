@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
+            AddPartButton = new Button();
+            ModifyPB = new Button();
+            DPartsB = new Button();
+            Exit = new Button();
+            DProdB = new Button();
+            MProB = new Button();
+            AddProductsButton = new Button();
             label2 = new Label();
             listBox1 = new ListBox();
             label3 = new Label();
             listBox2 = new ListBox();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            button8 = new Button();
-            button9 = new Button();
+            PartsSearch = new Button();
+            ProdSearch = new Button();
             SuspendLayout();
             // 
             // label1
@@ -55,69 +55,75 @@
             label1.TabIndex = 0;
             label1.Text = "Inventory Management System";
             // 
-            // button1
+            // AddPartButton
             // 
-            button1.Location = new Point(116, 346);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 1;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
+            AddPartButton.Location = new Point(116, 346);
+            AddPartButton.Name = "AddPartButton";
+            AddPartButton.Size = new Size(75, 23);
+            AddPartButton.TabIndex = 1;
+            AddPartButton.Text = "Add";
+            AddPartButton.UseVisualStyleBackColor = true;
+            AddPartButton.Click += AddPartButton_Click;
             // 
-            // button2
+            // ModifyPB
             // 
-            button2.Location = new Point(197, 346);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 2;
-            button2.Text = "Modify";
-            button2.UseVisualStyleBackColor = true;
+            ModifyPB.Location = new Point(197, 346);
+            ModifyPB.Name = "ModifyPB";
+            ModifyPB.Size = new Size(75, 23);
+            ModifyPB.TabIndex = 2;
+            ModifyPB.Text = "Modify";
+            ModifyPB.UseVisualStyleBackColor = true;
+            ModifyPB.Click += ModifyPB_Click;
             // 
-            // button3
+            // DPartsB
             // 
-            button3.Location = new Point(278, 346);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 3;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
+            DPartsB.Location = new Point(278, 346);
+            DPartsB.Name = "DPartsB";
+            DPartsB.Size = new Size(75, 23);
+            DPartsB.TabIndex = 3;
+            DPartsB.Text = "Delete";
+            DPartsB.UseVisualStyleBackColor = true;
+            DPartsB.Click += DPartsB_Click;
             // 
-            // button4
+            // Exit
             // 
-            button4.Location = new Point(682, 415);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 4;
-            button4.Text = "Exit";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            Exit.Location = new Point(682, 415);
+            Exit.Name = "Exit";
+            Exit.Size = new Size(75, 23);
+            Exit.TabIndex = 4;
+            Exit.Text = "Exit";
+            Exit.UseVisualStyleBackColor = true;
+            Exit.Click += Exit_Click;
             // 
-            // button5
+            // DProdB
             // 
-            button5.Location = new Point(682, 346);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 7;
-            button5.Text = "Delete";
-            button5.UseVisualStyleBackColor = true;
+            DProdB.Location = new Point(682, 346);
+            DProdB.Name = "DProdB";
+            DProdB.Size = new Size(75, 23);
+            DProdB.TabIndex = 7;
+            DProdB.Text = "Delete";
+            DProdB.UseVisualStyleBackColor = true;
+            DProdB.Click += DProdB_Click;
             // 
-            // button6
+            // MProB
             // 
-            button6.Location = new Point(601, 346);
-            button6.Name = "button6";
-            button6.Size = new Size(75, 23);
-            button6.TabIndex = 6;
-            button6.Text = "Modify";
-            button6.UseVisualStyleBackColor = true;
+            MProB.Location = new Point(601, 346);
+            MProB.Name = "MProB";
+            MProB.Size = new Size(75, 23);
+            MProB.TabIndex = 6;
+            MProB.Text = "Modify";
+            MProB.UseVisualStyleBackColor = true;
+            MProB.Click += MProB_Click;
             // 
-            // button7
+            // AddProductsButton
             // 
-            button7.Location = new Point(520, 346);
-            button7.Name = "button7";
-            button7.Size = new Size(75, 23);
-            button7.TabIndex = 5;
-            button7.Text = "Add";
-            button7.UseVisualStyleBackColor = true;
+            AddProductsButton.Location = new Point(520, 346);
+            AddProductsButton.Name = "AddProductsButton";
+            AddProductsButton.Size = new Size(75, 23);
+            AddProductsButton.TabIndex = 5;
+            AddProductsButton.Text = "Add";
+            AddProductsButton.UseVisualStyleBackColor = true;
+            AddProductsButton.Click += AddProductsButton_Click;
             // 
             // label2
             // 
@@ -168,44 +174,46 @@
             textBox2.Size = new Size(128, 23);
             textBox2.TabIndex = 13;
             // 
-            // button8
+            // PartsSearch
             // 
-            button8.Location = new Point(144, 86);
-            button8.Name = "button8";
-            button8.Size = new Size(75, 23);
-            button8.TabIndex = 14;
-            button8.Text = "Search";
-            button8.UseVisualStyleBackColor = true;
+            PartsSearch.Location = new Point(144, 86);
+            PartsSearch.Name = "PartsSearch";
+            PartsSearch.Size = new Size(75, 23);
+            PartsSearch.TabIndex = 14;
+            PartsSearch.Text = "Search";
+            PartsSearch.UseVisualStyleBackColor = true;
+            PartsSearch.Click += PartsSearch_Click;
             // 
-            // button9
+            // ProdSearch
             // 
-            button9.Location = new Point(548, 86);
-            button9.Name = "button9";
-            button9.Size = new Size(75, 23);
-            button9.TabIndex = 15;
-            button9.Text = "Search";
-            button9.UseVisualStyleBackColor = true;
+            ProdSearch.Location = new Point(548, 86);
+            ProdSearch.Name = "ProdSearch";
+            ProdSearch.Size = new Size(75, 23);
+            ProdSearch.TabIndex = 15;
+            ProdSearch.Text = "Search";
+            ProdSearch.UseVisualStyleBackColor = true;
+            ProdSearch.Click += ProdSearch_Click;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button9);
-            Controls.Add(button8);
+            Controls.Add(ProdSearch);
+            Controls.Add(PartsSearch);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(listBox2);
             Controls.Add(label3);
             Controls.Add(listBox1);
             Controls.Add(label2);
-            Controls.Add(button5);
-            Controls.Add(button6);
-            Controls.Add(button7);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(DProdB);
+            Controls.Add(MProB);
+            Controls.Add(AddProductsButton);
+            Controls.Add(Exit);
+            Controls.Add(DPartsB);
+            Controls.Add(ModifyPB);
+            Controls.Add(AddPartButton);
             Controls.Add(label1);
             Name = "Main";
             Text = "Main Screen";
@@ -216,20 +224,64 @@
         #endregion
 
         private Label label1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
+        private Button AddPartButton;
+        private Button ModifyPB;
+        private Button DPartsB;
+        private Button Exit;
+        private Button DProdB;
+        private Button MProB;
+        private Button AddProductsButton;
         private Label label2;
         private ListBox listBox1;
         private Label label3;
         private ListBox listBox2;
         private TextBox textBox1;
         private TextBox textBox2;
-        private Button button8;
-        private Button button9;
+        private Button PartsSearch;
+        private Button ProdSearch;
+
+        private void AddPartButton_Click(object sender, EventArgs e)
+        {
+            AddParts newform = new AddParts();
+            newform.ShowDialog();
+        }
+
+        private void ModifyPB_Click(object sender, EventArgs e)
+        {
+            ModifyPart newform = new ModifyPart();
+            newform.ShowDialog();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void DPartsB_Click(object sender, EventArgs e){
+            //
+        }
+        private void DProdB_Click(object sender, EventArgs e)
+        {
+            //
+        }
+        private void MProB_Click(object sender, EventArgs e)
+        {
+            ModifyProduct newform = new ModifyProduct();
+            newform.ShowDialog();
+        }
+        private void AddProductsButton_Click(object sender, EventArgs e)
+        {
+            AddProduct newform = new AddProduct();
+            newform.ShowDialog();
+        }
+        private void ProdSearch_Click(object sender, EventArgs e)
+        {
+            // Search for products
+        }
+        private void PartsSearch_Click(object sender, EventArgs e)
+        {
+            // Search for parts
+        }
+
     }
 }

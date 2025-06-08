@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            RadHouse = new RadioButton();
+            Radout = new RadioButton();
+            TextID = new TextBox();
+            TextName = new TextBox();
+            TextMin = new TextBox();
+            TextInv = new TextBox();
+            TextVaried = new TextBox();
+            textMax = new TextBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            label7 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            LabelChange = new Label();
+            SaveB = new Button();
+            CancelB = new Button();
             SuspendLayout();
             // 
             // label1
@@ -56,69 +56,69 @@
             label1.TabIndex = 0;
             label1.Text = "Add Part";
             // 
-            // radioButton1
+            // RadHouse
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(76, 66);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(74, 19);
-            radioButton1.TabIndex = 1;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "In-House";
-            radioButton1.UseVisualStyleBackColor = true;
+            RadHouse.AutoSize = true;
+            RadHouse.Location = new Point(76, 66);
+            RadHouse.Name = "RadHouse";
+            RadHouse.Size = new Size(74, 19);
+            RadHouse.TabIndex = 1;
+            RadHouse.TabStop = true;
+            RadHouse.Text = "In-House";
+            RadHouse.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // Radout
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(175, 66);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(88, 19);
-            radioButton2.TabIndex = 2;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "OutSourced";
-            radioButton2.UseVisualStyleBackColor = true;
+            Radout.AutoSize = true;
+            Radout.Location = new Point(175, 66);
+            Radout.Name = "Radout";
+            Radout.Size = new Size(88, 19);
+            Radout.TabIndex = 2;
+            Radout.TabStop = true;
+            Radout.Text = "OutSourced";
+            Radout.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // TextID
             // 
-            textBox1.Location = new Point(113, 108);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 3;
+            TextID.Location = new Point(113, 108);
+            TextID.Name = "TextID";
+            TextID.Size = new Size(100, 23);
+            TextID.TabIndex = 3;
             // 
-            // textBox2
+            // TextName
             // 
-            textBox2.Location = new Point(113, 152);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 4;
+            TextName.Location = new Point(113, 152);
+            TextName.Name = "TextName";
+            TextName.Size = new Size(100, 23);
+            TextName.TabIndex = 4;
             // 
-            // textBox3
+            // TextMin
             // 
-            textBox3.Location = new Point(113, 240);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(72, 23);
-            textBox3.TabIndex = 5;
+            TextMin.Location = new Point(113, 240);
+            TextMin.Name = "TextMin";
+            TextMin.Size = new Size(72, 23);
+            TextMin.TabIndex = 5;
             // 
-            // textBox4
+            // TextInv
             // 
-            textBox4.Location = new Point(113, 196);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 6;
+            TextInv.Location = new Point(113, 196);
+            TextInv.Name = "TextInv";
+            TextInv.Size = new Size(100, 23);
+            TextInv.TabIndex = 6;
             // 
-            // textBox5
+            // TextVaried
             // 
-            textBox5.Location = new Point(113, 284);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 7;
+            TextVaried.Location = new Point(113, 284);
+            TextVaried.Name = "TextVaried";
+            TextVaried.Size = new Size(100, 23);
+            TextVaried.TabIndex = 7;
             // 
-            // textBox6
+            // textMax
             // 
-            textBox6.Location = new Point(252, 240);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(72, 23);
-            textBox6.TabIndex = 8;
+            textMax.Location = new Point(252, 240);
+            textMax.Name = "textMax";
+            textMax.Size = new Size(72, 23);
+            textMax.TabIndex = 8;
             // 
             // label2
             // 
@@ -167,54 +167,55 @@
             label6.TabIndex = 13;
             label6.Text = "Max";
             // 
-            // label7
+            // LabelChange
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(55, 292);
-            label7.Name = "label7";
-            label7.Size = new Size(38, 15);
-            label7.TabIndex = 14;
-            label7.Text = "label7";
+            LabelChange.AutoSize = true;
+            LabelChange.Location = new Point(55, 292);
+            LabelChange.Name = "LabelChange";
+            LabelChange.Size = new Size(38, 15);
+            LabelChange.TabIndex = 14;
+            LabelChange.Text = "label7";
             // 
-            // button1
+            // SaveB
             // 
-            button1.Location = new Point(164, 379);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 15;
-            button1.Text = "Save";
-            button1.UseVisualStyleBackColor = true;
+            SaveB.Location = new Point(164, 379);
+            SaveB.Name = "SaveB";
+            SaveB.Size = new Size(75, 23);
+            SaveB.TabIndex = 15;
+            SaveB.Text = "Save";
+            SaveB.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // CancelB
             // 
-            button2.Location = new Point(276, 379);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 16;
-            button2.Text = "Cancel";
-            button2.UseVisualStyleBackColor = true;
+            CancelB.Location = new Point(276, 379);
+            CancelB.Name = "CancelB";
+            CancelB.Size = new Size(75, 23);
+            CancelB.TabIndex = 16;
+            CancelB.Text = "Cancel";
+            CancelB.UseVisualStyleBackColor = true;
+            CancelB.Click += CancelB_Click;
             // 
             // AddParts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(374, 424);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(label7);
+            Controls.Add(CancelB);
+            Controls.Add(SaveB);
+            Controls.Add(LabelChange);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
+            Controls.Add(textMax);
+            Controls.Add(TextVaried);
+            Controls.Add(TextInv);
+            Controls.Add(TextMin);
+            Controls.Add(TextName);
+            Controls.Add(TextID);
+            Controls.Add(Radout);
+            Controls.Add(RadHouse);
             Controls.Add(label1);
             Name = "AddParts";
             Text = "Add Parts";
@@ -223,24 +224,35 @@
             PerformLayout();
         }
 
+        private void CancelB_Click1(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private Label label1;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private RadioButton RadHouse;
+        private RadioButton Radout;
+        private TextBox TextID;
+        private TextBox TextName;
+        private TextBox TextMin;
+        private TextBox TextInv;
+        private TextBox TextVaried;
+        private TextBox textMax;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
-        private Label label7;
-        private Button button1;
-        private Button button2;
+        private Label LabelChange;
+        private Button SaveB;
+        private Button CancelB;
+
+
+        private void CancelB_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

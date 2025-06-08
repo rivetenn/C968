@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace C968
 {
     public class Inventory
     {
+        public BindingList<Product> Products = new BindingList<Product>();
+        public BindingList<Part> AllParts = new BindingList<Part>();
         public void addPart(Product prod)
         {
         }
