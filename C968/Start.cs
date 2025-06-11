@@ -1,8 +1,8 @@
 namespace C968
 {
-    public partial class Main : Form
+    public partial class Start : Form
     {
-        public Main()
+        public Start()
         {
             InitializeComponent();
         }
@@ -18,6 +18,16 @@ namespace C968
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

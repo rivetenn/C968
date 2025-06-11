@@ -9,35 +9,70 @@ namespace C968
 {
     public class Inventory
     {
-        public BindingList<Product> Products = new BindingList<Product>();
-        public BindingList<Part> AllParts = new BindingList<Part>();
-        public void addPart(Product prod)
+        public static BindingList<Product> Products = new BindingList<Product>();
+        public static BindingList<Part> AllParts = new BindingList<Part>();
+        public static void AddProd(Product prod)
         {
+            Products.Add(prod);
         }
-        public bool removePart(Part part) {
-            return true;
+        static public bool removeProduct(Product prod) {
+            if (YesNoV())
+            {
+                return Products.Remove(prod);
+            }
+            else return false;
         }
-        public Product lookupProduct(int ID)
+        public static Product lookupProduct(int ID)
         {
-            return new Product(); 
+            foreach (Product prod in Products)
+            {
+                if (prod.ProductID == ID)
+                    return prod;
+            }
+            return null;
         }
         public void updateProduct(int num, Product product)
         {
+            Products[num] = product;
         }
         public void AddPart(Part part)
         {
+            if (part is Outsourced outsourced)
+            {
+                AllParts.Add(outsourced); 
+            }
+            else if (part is Inhouse inhouse)
+            {
+                AllParts.Add(inhouse); 
+            }
+        }
 
-        }
-        public bool deletePart(Part part)
+        public static bool deletePart(Part part)
         {
-            return true;
+            if(YesNoV()){
+                return AllParts.Remove(part);
+            }
+            else return false;
         }
-        public Part lookupPart(int ID)
+        public static Part lookupPart(int ID)
         {
-            return new Part();
+            foreach (Part part in AllParts)
+            {
+                if (part.PartID == ID)
+                    return part;
+            }
+            return null;
         }
-        public void updatePart(int num, Part part)
+
+        public static void updatePart(int num, Part part)
         {
+            AllParts[num] = part;
         }
+
+        public static bool YesNoV()
+        {
+            return MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes;
+        }
+
     }
 }

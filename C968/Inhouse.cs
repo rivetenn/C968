@@ -8,6 +8,11 @@ namespace C968
 {
     public class Inhouse : Part
     {
-        public int MachineID { get; set; }
+        public int PartMID { get; set; }
+
+        public Inhouse(int partID, string name, decimal price, int inStock, int min, int max, int MID)
+        : base(partID, name, price, inStock, min, max) {
+            PartMID = MID;
+        }
     }
 }

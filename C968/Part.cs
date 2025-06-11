@@ -8,13 +8,22 @@ namespace C968
 {
     public class Part
     {
-        int PartID { get; set; }
-        string Name { get; set; }
-        Decimal Price { get; set; }
-        int InStock { get; set; }
-        int Min { get; set; }
-        int Max { get; set; }
+        public int PartID { get; set; }
+        public string PartName { get; set; }
+        public decimal PartPrice { get; set; }
+        public int PartinStock { get; set; }
+        public int PartMin { get; set; }
+        public int PartMax { get; set; }
 
-
+        public Part(int partID, string name, decimal price, int inStock, int min, int max)
+        {
+            PartID = partID;
+            PartName = name;
+            PartPrice = price;
+            PartinStock = inStock;
+            PartMin = min;
+            PartMax = max;
+        }
     }
 }
+

@@ -1,4 +1,7 @@
-﻿namespace C968
+﻿using System.ComponentModel;
+using System.Globalization;
+
+namespace C968
 {
     partial class AddProduct
     {
@@ -33,24 +36,26 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            textBox6 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            ProdMax = new TextBox();
+            ProdInv = new TextBox();
+            ProdMin = new TextBox();
+            ProdName = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox5 = new TextBox();
+            ProdID = new TextBox();
+            ProdPrice = new TextBox();
             label7 = new Label();
-            button8 = new Button();
-            textBox7 = new TextBox();
-            listView1 = new ListView();
-            listView2 = new ListView();
+            SearchB = new Button();
+            SearchText = new TextBox();
             label8 = new Label();
             label9 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            CancelB = new Button();
+            SaveB = new Button();
+            DeleteB = new Button();
+            AddB = new Button();
+            ProdAllParts = new DataGridView();
+            ProdAssParts = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)ProdAllParts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ProdAssParts).BeginInit();
             SuspendLayout();
             // 
             // label6
@@ -98,33 +103,33 @@
             label2.TabIndex = 38;
             label2.Text = "ID";
             // 
-            // textBox6
+            // ProdMax
             // 
-            textBox6.Location = new Point(251, 294);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(72, 23);
-            textBox6.TabIndex = 37;
+            ProdMax.Location = new Point(251, 294);
+            ProdMax.Name = "ProdMax";
+            ProdMax.Size = new Size(72, 23);
+            ProdMax.TabIndex = 37;
             // 
-            // textBox4
+            // ProdInv
             // 
-            textBox4.Location = new Point(112, 202);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 36;
+            ProdInv.Location = new Point(112, 202);
+            ProdInv.Name = "ProdInv";
+            ProdInv.Size = new Size(100, 23);
+            ProdInv.TabIndex = 36;
             // 
-            // textBox3
+            // ProdMin
             // 
-            textBox3.Location = new Point(112, 294);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(72, 23);
-            textBox3.TabIndex = 35;
+            ProdMin.Location = new Point(112, 294);
+            ProdMin.Name = "ProdMin";
+            ProdMin.Size = new Size(72, 23);
+            ProdMin.TabIndex = 35;
             // 
-            // textBox2
+            // ProdName
             // 
-            textBox2.Location = new Point(112, 158);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 34;
+            ProdName.Location = new Point(112, 158);
+            ProdName.Name = "ProdName";
+            ProdName.Size = new Size(100, 23);
+            ProdName.TabIndex = 34;
             // 
             // label1
             // 
@@ -135,19 +140,19 @@
             label1.TabIndex = 31;
             label1.Text = "Add Product";
             // 
-            // textBox1
+            // ProdID
             // 
-            textBox1.Location = new Point(112, 114);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 43;
+            ProdID.Location = new Point(112, 114);
+            ProdID.Name = "ProdID";
+            ProdID.Size = new Size(100, 23);
+            ProdID.TabIndex = 43;
             // 
-            // textBox5
+            // ProdPrice
             // 
-            textBox5.Location = new Point(112, 248);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 44;
+            ProdPrice.Location = new Point(112, 248);
+            ProdPrice.Name = "ProdPrice";
+            ProdPrice.Size = new Size(100, 23);
+            ProdPrice.TabIndex = 44;
             // 
             // label7
             // 
@@ -158,124 +163,138 @@
             label7.TabIndex = 45;
             label7.Text = "Price";
             // 
-            // button8
+            // SearchB
             // 
-            button8.Location = new Point(511, 58);
-            button8.Name = "button8";
-            button8.Size = new Size(75, 23);
-            button8.TabIndex = 47;
-            button8.Text = "Search";
-            button8.UseVisualStyleBackColor = true;
+            SearchB.Location = new Point(511, 58);
+            SearchB.Name = "SearchB";
+            SearchB.Size = new Size(75, 23);
+            SearchB.TabIndex = 47;
+            SearchB.Text = "Search";
+            SearchB.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // SearchText
             // 
-            textBox7.Location = new Point(601, 58);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(128, 23);
-            textBox7.TabIndex = 46;
-            // 
-            // listView1
-            // 
-            listView1.Location = new Point(394, 122);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(335, 119);
-            listView1.TabIndex = 48;
-            listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // listView2
-            // 
-            listView2.Location = new Point(394, 300);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(335, 119);
-            listView2.TabIndex = 49;
-            listView2.UseCompatibleStateImageBehavior = false;
+            SearchText.Location = new Point(601, 58);
+            SearchText.Name = "SearchText";
+            SearchText.Size = new Size(128, 23);
+            SearchText.TabIndex = 46;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(394, 94);
+            label8.Location = new Point(394, 78);
             label8.Name = "label8";
             label8.Size = new Size(50, 15);
             label8.TabIndex = 50;
             label8.Text = "All Parts";
+            label8.Click += label8_Click;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(394, 269);
+            label9.Location = new Point(394, 264);
             label9.Name = "label9";
             label9.Size = new Size(93, 15);
             label9.TabIndex = 51;
             label9.Text = "Associated Parts";
             // 
-            // button1
+            // CancelB
             // 
-            button1.Location = new Point(654, 471);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 52;
-            button1.Text = "Cancel";
-            button1.UseVisualStyleBackColor = true;
+            CancelB.Location = new Point(654, 481);
+            CancelB.Name = "CancelB";
+            CancelB.Size = new Size(75, 23);
+            CancelB.TabIndex = 52;
+            CancelB.Text = "Cancel";
+            CancelB.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // SaveB
             // 
-            button2.Location = new Point(561, 436);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 53;
-            button2.Text = "Save";
-            button2.UseVisualStyleBackColor = true;
+            SaveB.Location = new Point(561, 446);
+            SaveB.Name = "SaveB";
+            SaveB.Size = new Size(75, 23);
+            SaveB.TabIndex = 53;
+            SaveB.Text = "Save";
+            SaveB.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // DeleteB
             // 
-            button3.Location = new Point(654, 436);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 54;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
+            DeleteB.Location = new Point(654, 446);
+            DeleteB.Name = "DeleteB";
+            DeleteB.Size = new Size(75, 23);
+            DeleteB.TabIndex = 54;
+            DeleteB.Text = "Delete";
+            DeleteB.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // AddB
             // 
-            button4.Location = new Point(654, 256);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 78;
-            button4.Text = "Add";
-            button4.UseVisualStyleBackColor = true;
+            AddB.Location = new Point(654, 256);
+            AddB.Name = "AddB";
+            AddB.Size = new Size(75, 23);
+            AddB.TabIndex = 78;
+            AddB.Text = "Add";
+            AddB.UseVisualStyleBackColor = true;
+            // 
+            // ProdAllParts
+            // 
+            ProdAllParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ProdAllParts.Location = new Point(394, 96);
+            ProdAllParts.Name = "ProdAllParts";
+            ProdAllParts.Size = new Size(335, 150);
+            ProdAllParts.TabIndex = 79;
+            // 
+            // ProdAssParts
+            // 
+            ProdAssParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ProdAssParts.Location = new Point(394, 280);
+            ProdAssParts.Name = "ProdAssParts";
+            ProdAssParts.Size = new Size(335, 150);
+            ProdAssParts.TabIndex = 80;
             // 
             // AddProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(768, 526);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(ProdAssParts);
+            Controls.Add(ProdAllParts);
+            Controls.Add(AddB);
+            Controls.Add(DeleteB);
+            Controls.Add(SaveB);
+            Controls.Add(CancelB);
             Controls.Add(label9);
             Controls.Add(label8);
-            Controls.Add(listView2);
-            Controls.Add(listView1);
-            Controls.Add(button8);
-            Controls.Add(textBox7);
+            Controls.Add(SearchB);
+            Controls.Add(SearchText);
             Controls.Add(label7);
-            Controls.Add(textBox5);
-            Controls.Add(textBox1);
+            Controls.Add(ProdPrice);
+            Controls.Add(ProdID);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox6);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
+            Controls.Add(ProdMax);
+            Controls.Add(ProdInv);
+            Controls.Add(ProdMin);
+            Controls.Add(ProdName);
             Controls.Add(label1);
             Name = "AddProduct";
             Text = "Add Products";
+            ((System.ComponentModel.ISupportInitialize)ProdAllParts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ProdAssParts).EndInit();
             ResumeLayout(false);
             PerformLayout();
+
+            SaveB.Click += SaveB_Click;
+            CancelB.Click += CancelB_Click;
+            Load += StartUp;
+            DeleteB.Click += DeleteB_Click;
+            AddB.Click += AddB_Click;
+        }
+
+        private void SaveB_Click1(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -285,23 +304,81 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private TextBox textBox6;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox ProdMax;
+        private TextBox ProdInv;
+        private TextBox ProdMin;
+        private TextBox ProdName;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox5;
+        private TextBox ProdID;
+        private TextBox ProdPrice;
         private Label label7;
-        private Button button8;
-        private TextBox textBox7;
-        private ListView listView1;
-        private ListView listView2;
+        private Button SearchB;
+        private TextBox SearchText;
         private Label label8;
         private Label label9;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button CancelB;
+        private Button SaveB;
+        private Button DeleteB;
+        private Button AddB;
+        public DataGridView ProdAllParts;
+        public DataGridView ProdAssParts;
+
+        private BindingList<Part> CurrAP = new BindingList<Part>();
+
+        private void CancelB_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SaveB_Click(object sender, EventArgs e)
+        {
+            int min = int.Parse(ProdMin.Text);
+            int max = int.Parse(ProdMax.Text);
+            int innit = int.Parse(ProdInv.Text);
+            if (min > max || innit < min || innit > max)
+            {
+                return;
+            }
+
+            var product = new Product(
+                int.Parse(ProdID.Text), ProdName.Text, decimal.Parse(ProdPrice.Text), innit, min, max
+            );
+
+            foreach (var part in CurrAP)
+            {
+                product.addAssociatedPart(part);
+            }
+
+            Inventory.AddProd(product);
+            this.Close();
+        }
+
+        private void AddB_Click(object sender, EventArgs e)
+        {
+            if (ProdAllParts.CurrentRow?.DataBoundItem is Part selectedPart)
+            {
+                CurrAP.Add(selectedPart);
+            }
+        }
+
+        private void DeleteB_Click(object sender, EventArgs e)
+        {
+            if (ProdAssParts.CurrentRow?.DataBoundItem is Part selectedPart)
+            {
+                CurrAP.Remove(selectedPart);
+            }
+        }
+        private void StartUp(object sender, EventArgs e)
+        {
+            ProdAllParts.DataSource = Inventory.AllParts;
+            ProdAssParts.DataSource = CurrAP;
+
+            ProdAllParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            ProdAllParts.MultiSelect = false;
+
+            ProdAssParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            ProdAssParts.MultiSelect = false;
+
+        }
     }
 }

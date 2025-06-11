@@ -45,6 +45,8 @@
             LabelChange = new Label();
             SaveB = new Button();
             CancelB = new Button();
+            label7 = new Label();
+            PriceText = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -66,6 +68,7 @@
             RadHouse.TabStop = true;
             RadHouse.Text = "In-House";
             RadHouse.UseVisualStyleBackColor = true;
+            RadHouse.CheckedChanged += Radout_Change;
             // 
             // Radout
             // 
@@ -94,7 +97,7 @@
             // 
             // TextMin
             // 
-            TextMin.Location = new Point(113, 240);
+            TextMin.Location = new Point(113, 289);
             TextMin.Name = "TextMin";
             TextMin.Size = new Size(72, 23);
             TextMin.TabIndex = 5;
@@ -108,14 +111,14 @@
             // 
             // TextVaried
             // 
-            TextVaried.Location = new Point(113, 284);
+            TextVaried.Location = new Point(113, 333);
             TextVaried.Name = "TextVaried";
             TextVaried.Size = new Size(100, 23);
             TextVaried.TabIndex = 7;
             // 
             // textMax
             // 
-            textMax.Location = new Point(252, 240);
+            textMax.Location = new Point(252, 289);
             textMax.Name = "textMax";
             textMax.Size = new Size(72, 23);
             textMax.TabIndex = 8;
@@ -152,7 +155,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(66, 248);
+            label5.Location = new Point(66, 297);
             label5.Name = "label5";
             label5.Size = new Size(28, 15);
             label5.TabIndex = 12;
@@ -161,7 +164,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(206, 248);
+            label6.Location = new Point(206, 297);
             label6.Name = "label6";
             label6.Size = new Size(30, 15);
             label6.TabIndex = 13;
@@ -169,12 +172,13 @@
             // 
             // LabelChange
             // 
-            LabelChange.AutoSize = true;
-            LabelChange.Location = new Point(55, 292);
+            LabelChange.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            LabelChange.Location = new Point(0, 341);
             LabelChange.Name = "LabelChange";
-            LabelChange.Size = new Size(38, 15);
+            LabelChange.RightToLeft = RightToLeft.No;
+            LabelChange.Size = new Size(94, 15);
             LabelChange.TabIndex = 14;
-            LabelChange.Text = "label7";
+            LabelChange.Text = "Company Name";
             // 
             // SaveB
             // 
@@ -184,6 +188,7 @@
             SaveB.TabIndex = 15;
             SaveB.Text = "Save";
             SaveB.UseVisualStyleBackColor = true;
+            SaveB.Click += Save_Click;
             // 
             // CancelB
             // 
@@ -195,11 +200,31 @@
             CancelB.UseVisualStyleBackColor = true;
             CancelB.Click += CancelB_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(61, 250);
+            label7.Name = "label7";
+            label7.Size = new Size(33, 15);
+            label7.TabIndex = 18;
+            label7.Text = "Price";
+            // 
+            // PriceText
+            // 
+            PriceText.Location = new Point(113, 242);
+            PriceText.Name = "PriceText";
+            PriceText.Size = new Size(100, 23);
+            PriceText.TabIndex = 17;
+            // 
             // AddParts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(374, 424);
+            Controls.Add(label7);
+            Controls.Add(PriceText);
             Controls.Add(CancelB);
             Controls.Add(SaveB);
             Controls.Add(LabelChange);
@@ -218,16 +243,13 @@
             Controls.Add(RadHouse);
             Controls.Add(label1);
             Name = "AddParts";
+            RightToLeft = RightToLeft.No;
             Text = "Add Parts";
             Load += AddParts_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
-        private void CancelB_Click1(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         #endregion
 
@@ -254,5 +276,58 @@
         {
             this.Close();
         }
+
+        private void Radout_Change(object sender, EventArgs e)
+        {
+            if (RadHouse.Checked)
+            {
+                LabelChange.Text = "Machine ID";
+            }
+            else if (Radout.Checked)
+            {
+                LabelChange.Text = "Company Name";
+            }
+        }
+
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            int min = int.Parse(TextMin.Text);
+            int max = int.Parse(textMax.Text);
+            int innit = int.Parse(TextInv.Text);
+            if (min > max || innit < min || innit > max){
+                return;
+            }
+            
+            if (RadHouse.Checked)
+            {
+                Inventory.AllParts.Add(new Inhouse(
+                    int.Parse(TextID.Text),
+                    TextName.Text,
+                    decimal.Parse(PriceText.Text),
+                    int.Parse(TextInv.Text),
+                    int.Parse(TextMin.Text),
+                    int.Parse(textMax.Text),
+                    int.Parse(TextVaried.Text)
+                ));
+                this.Close();
+            }
+            else if (Radout.Checked)
+            {
+                Inventory.AllParts.Add(new Outsourced(
+                    int.Parse(TextID.Text),
+                    TextName.Text,
+                    decimal.Parse(PriceText.Text),
+                    int.Parse(TextInv.Text),
+                    int.Parse(TextMin.Text),
+                    int.Parse(textMax.Text),
+                    TextVaried.Text
+                ));
+                this.Close();
+            }
+
+        }
+        private Label label7;
+        private TextBox PriceText;
     }
 }

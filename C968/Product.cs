@@ -11,26 +11,48 @@ namespace C968
     {
 
         public BindingList<Part> AssociatedParts = new BindingList<Part>();
-        int ProductID { get; set; }
-        string Name { get; set; }
-        decimal Price { get; set; }
-        int InStock { get; set; }
-        int Min { get; set; }
-        int Max { get; set; }
+        public int ProductID { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public int InStock { get; set; }
+        public int Min { get; set; }
+        public int Max { get; set; }
 
+        public Product (int prod, string name, decimal price, int inStock, int min, int max)
+        {
+            ProductID = prod;
+            Name = name;
+            Price = price;
+            InStock = inStock;
+            Min = min;
+            Max = max;
+        }
         public void addAssociatedPart(Part part)
         {
-
+            AssociatedParts.Add(part);
         }
 
         public bool removeAssociatedPart(int ID)
         {
-            return true;
+            if (Inventory.YesNoV())
+            {
+                var part = lookupAssociatedPart(ID);
+                if (part != null)
+                {
+                    return AssociatedParts.Remove(part);
+                }
+            }
+            return false;
         }
 
-        //public Part lookupAssociatedPart(int ID)
-        //{
-        //    return;
-        //}
+        public Part lookupAssociatedPart(int ID)
+        {
+            foreach (Part part in AssociatedParts)
+            {
+                if (part.PartID == ID)
+                    return part;
+            }
+            return null;
+        }
     }
 }
