@@ -369,8 +369,6 @@ namespace C968
                     }
                 }
             }
-            else
-                MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void PartsSearch_Click(object sender, EventArgs e)
         {
@@ -387,10 +385,23 @@ namespace C968
                     }
                 }
             }
-            else
-                MessageBox.Show("Part not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        private void StartUp(object sender, EventArgs e)
+        private void ThisThing(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (PartsGridView.Columns[e.ColumnIndex].Name == "PartMID")
+            {
+                var part = PartsGridView.Rows[e.RowIndex].DataBoundItem as Part;
+                if (part is Inhouse MID)
+                    e.Value = MID.PartMID;
+            }
+            else if (PartsGridView.Columns[e.ColumnIndex].Name == "PartCN")
+            {
+                var part = PartsGridView.Rows[e.RowIndex].DataBoundItem as Part;
+                if (part is Outsourced CN)
+                    e.Value = CN.PartCN;
+            }
+        }
+private void StartUp(object sender, EventArgs e)
         {
             PartsGridView.AutoGenerateColumns = false;
             PartsGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -409,24 +420,11 @@ namespace C968
             Inventory.Products.Add(new Product(6, "Thing1", 3, 5, 1, 20));
             Inventory.Products.Add(new Product(7, "Thing2", 1, 5, 1, 20));
             Inventory.Products.Add(new Product(8, "Thing3", 4, 5, 1, 20));
+
             PartsGridView.DataSource = Inventory.AllParts;
             ProdGridView.DataSource = Inventory.Products;
 
-            PartsGridView.CellFormatting += (s, e) =>
-            {
-                if (PartsGridView.Columns[e.ColumnIndex].Name == "PartMID")
-                {
-                    var part = PartsGridView.Rows[e.RowIndex].DataBoundItem as Part;
-                    if (part is Inhouse ih)
-                        e.Value = ih.PartMID;
-                }
-                else if (PartsGridView.Columns[e.ColumnIndex].Name == "PartCN")
-                {
-                    var part = PartsGridView.Rows[e.RowIndex].DataBoundItem as Part;
-                    if (part is Outsourced os)
-                        e.Value = os.PartCN;
-                }
-            };
+            PartsGridView.CellFormatting += ThisThing;
         }
 
         public DataGridViewTextBoxColumn PartID;
