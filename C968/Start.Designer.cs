@@ -322,10 +322,19 @@ namespace C968
                 ModifyPart newform = new ModifyPart();
                 Part ModPart = PartsGridView.CurrentRow.DataBoundItem as Part;
                 newform.Taker = ModPart;
-                newform.columnIndex = PartsGridView.CurrentCell.ColumnIndex;
+                newform.rowIndex = PartsGridView.CurrentCell.RowIndex;
                 newform.ShowDialog();
             }
         }
+        private void MProB_Click(object sender, EventArgs e)
+        {
+            AddProduct newform = new AddProduct();
+            Product ModProduct = ProdGridView.CurrentRow.DataBoundItem as Product;
+            newform.Taker = ModProduct;
+            newform.rowIndex = ProdGridView.CurrentCell.RowIndex;
+            newform.ShowDialog();
+        }
+
 
         private void Exit_Click(object sender, EventArgs e)
         {
@@ -339,11 +348,7 @@ namespace C968
         {
             Inventory.removeProduct(ProdGridView.CurrentRow.DataBoundItem as Product);
         }
-        private void MProB_Click(object sender, EventArgs e)
-        {
-            ModifyProduct newform = new ModifyProduct();
-            newform.ShowDialog();
-        }
+
         private void AddProductsButton_Click(object sender, EventArgs e)
         {
             AddProduct newform = new AddProduct();

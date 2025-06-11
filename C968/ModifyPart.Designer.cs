@@ -283,7 +283,7 @@ namespace C968
         private Label MPCN;
 
         public Part Taker;
-        public int columnIndex;
+        public int rowIndex;
 
 
         void GetFromStarter(object sender, EventArgs e)
@@ -337,12 +337,12 @@ namespace C968
             }
             if (RBIN.Checked)
             {
-                Inventory.updatePart(columnIndex, new Inhouse(int.Parse(MPID.Text), MPName.Text, decimal.Parse(MPPrice.Text), int.Parse(MPInv.Text), 
+                Inventory.updatePart(rowIndex, new Inhouse(int.Parse(MPID.Text), MPName.Text, decimal.Parse(MPPrice.Text), int.Parse(MPInv.Text), 
                     int.Parse(MPMin.Text), int.Parse(MPMax.Text), int.Parse(MPVaried.Text)));
             }
             else
             {
-                Inventory.updatePart(columnIndex, new Outsourced(int.Parse(MPID.Text), MPName.Text, decimal.Parse(MPPrice.Text), int.Parse(MPInv.Text),
+                Inventory.updatePart(rowIndex, new Outsourced(int.Parse(MPID.Text), MPName.Text, decimal.Parse(MPPrice.Text), int.Parse(MPInv.Text),
                     int.Parse(MPMin.Text), int.Parse(MPMax.Text), MPVaried.Text));
             }
                 this.Close();

@@ -31,7 +31,7 @@ namespace C968
             }
             return null;
         }
-        public void updateProduct(int num, Product product)
+        public static void updateProduct(int num, Product product)
         {
             Products[num] = product;
         }
@@ -50,6 +50,15 @@ namespace C968
         public static bool deletePart(Part part)
         {
             if(YesNoV()){
+                foreach (Product product in Products)
+                {
+                    if (product.lookupAssociatedPart(part.PartID) != null)
+                    {
+                        MessageBox.Show("Cannot delete part, it is associated with a product.");
+                        return false;
+                    }
+                }
+
                 return AllParts.Remove(part);
             }
             else return false;

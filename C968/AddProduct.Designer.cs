@@ -325,6 +325,9 @@ namespace C968
 
         private BindingList<Part> CurrAP = new BindingList<Part>();
 
+        public Product Taker;
+        public int rowIndex =-1;
+
         private void CancelB_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -348,8 +351,17 @@ namespace C968
             {
                 product.addAssociatedPart(part);
             }
+            if(rowIndex != -1)
+            {
+                Inventory.updateProduct(rowIndex, product);
+                this.Close();
+                return;
+            }
+            else
+            {
+                Inventory.AddProd(product);
+            }
 
-            Inventory.AddProd(product);
             this.Close();
         }
 
@@ -371,11 +383,20 @@ namespace C968
         private void StartUp(object sender, EventArgs e)
         {
             ProdAllParts.DataSource = Inventory.AllParts;
-            ProdAssParts.DataSource = CurrAP;
-
             ProdAllParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProdAllParts.MultiSelect = false;
 
+            if (Taker != null)
+            {
+                ProdID.Text = Taker.ProductID.ToString();
+                ProdName.Text = Taker.Name;
+                ProdPrice.Text = Taker.Price.ToString();
+                ProdInv.Text = Taker.InStock.ToString();
+                ProdMin.Text = Taker.Min.ToString();
+                ProdMax.Text = Taker.Max.ToString();
+                CurrAP = Taker.AssociatedParts;
+            }
+            ProdAssParts.DataSource = CurrAP;
             ProdAssParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProdAssParts.MultiSelect = false;
 
