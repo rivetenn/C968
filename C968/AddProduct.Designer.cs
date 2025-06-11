@@ -355,7 +355,6 @@ namespace C968
             {
                 Inventory.updateProduct(rowIndex, product);
                 this.Close();
-                return;
             }
             else
             {
@@ -367,7 +366,7 @@ namespace C968
 
         private void AddB_Click(object sender, EventArgs e)
         {
-            if (ProdAllParts.CurrentRow?.DataBoundItem is Part selectedPart)
+            if (ProdAllParts.CurrentRow.DataBoundItem is Part selectedPart)
             {
                 CurrAP.Add(selectedPart);
             }
@@ -375,7 +374,7 @@ namespace C968
 
         private void DeleteB_Click(object sender, EventArgs e)
         {
-            if (ProdAssParts.CurrentRow?.DataBoundItem is Part selectedPart)
+            if (ProdAssParts.CurrentRow.DataBoundItem is Part selectedPart)
             {
                 CurrAP.Remove(selectedPart);
             }
