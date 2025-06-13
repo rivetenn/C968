@@ -1,4 +1,6 @@
-﻿namespace C968
+﻿using System.Drawing.Text;
+
+namespace C968
 {
     partial class AddParts
     {
@@ -245,7 +247,7 @@
             Name = "AddParts";
             RightToLeft = RightToLeft.No;
             Text = "Add Parts";
-            Load += AddParts_Load;
+            Load += StartUp;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -302,7 +304,6 @@
             if (RadHouse.Checked)
             {
                 Inventory.AllParts.Add(new Inhouse(
-                    int.Parse(TextID.Text),
                     TextName.Text,
                     decimal.Parse(PriceText.Text),
                     int.Parse(TextInv.Text),
@@ -315,7 +316,6 @@
             else if (Radout.Checked)
             {
                 Inventory.AllParts.Add(new Outsourced(
-                    int.Parse(TextID.Text),
                     TextName.Text,
                     decimal.Parse(PriceText.Text),
                     int.Parse(TextInv.Text),
@@ -326,7 +326,16 @@
                 this.Close();
             }
 
+            
+
         }
+
+        private void StartUp(object sender, EventArgs e)
+        {
+            TextID.Text = Part.AID.ToString();
+            TextID.ReadOnly = true;
+        }
+
         private Label label7;
         private TextBox PriceText;
     }

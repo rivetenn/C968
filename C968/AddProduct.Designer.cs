@@ -344,7 +344,7 @@ namespace C968
             }
 
             var product = new Product(
-                int.Parse(ProdID.Text), ProdName.Text, decimal.Parse(ProdPrice.Text), innit, min, max
+                ProdName.Text, decimal.Parse(ProdPrice.Text), innit, min, max
             );
 
             foreach (var part in CurrAP)
@@ -395,6 +395,12 @@ namespace C968
                 ProdMax.Text = Taker.Max.ToString();
                 CurrAP = Taker.AssociatedParts;
             }
+            else
+            {
+                ProdID.Text = Product.AIP.ToString();
+            }
+               
+            ProdID.ReadOnly = true;
             ProdAssParts.DataSource = CurrAP;
             ProdAssParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProdAssParts.MultiSelect = false;

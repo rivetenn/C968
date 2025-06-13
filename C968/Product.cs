@@ -11,6 +11,8 @@ namespace C968
     {
 
         public BindingList<Part> AssociatedParts = new BindingList<Part>();
+
+        public static int AIP = 1;
         public int ProductID { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
@@ -18,14 +20,15 @@ namespace C968
         public int Min { get; set; }
         public int Max { get; set; }
 
-        public Product (int prod, string name, decimal price, int inStock, int min, int max)
+        public Product (string name, decimal price, int inStock, int min, int max)
         {
-            ProductID = prod;
+            ProductID = AIP;
             Name = name;
             Price = price;
             InStock = inStock;
             Min = min;
             Max = max;
+            AIP++;  
         }
         public void addAssociatedPart(Part part)
         {

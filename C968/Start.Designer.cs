@@ -409,17 +409,17 @@ private void StartUp(object sender, EventArgs e)
             ProdGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProdGridView.MultiSelect = false;
 
-            Inventory.AllParts.Add(new Inhouse(1, "Part A", 10, 5, 1, 20, 1001));
-            Inventory.AllParts.Add(new Outsourced(2, "Part B", 10, 5, 1, 20, "Compy"));
-            Inventory.AllParts.Add(new Outsourced(3, "Part C", 10, 7, 1, 20, "Place"));
-            Inventory.AllParts.Add(new Outsourced(4, "Part D", 12, 5, 1, 20, "Place"));
-            Inventory.AllParts.Add(new Outsourced(5, "Part E", 15, 8, 1, 20, "Compy"));
-            Inventory.AllParts.Add(new Inhouse(6, "Part F", 3, 5, 1, 20, 757));
-            Inventory.AllParts.Add(new Inhouse(7, "Part G", 1, 5, 1, 20, 112));
-            Inventory.AllParts.Add(new Inhouse(8, "Part H", 4, 5, 1, 20, 12));
-            Inventory.Products.Add(new Product(6, "Thing1", 3, 5, 1, 20));
-            Inventory.Products.Add(new Product(7, "Thing2", 1, 5, 1, 20));
-            Inventory.Products.Add(new Product(8, "Thing3", 4, 5, 1, 20));
+            Inventory.AllParts.Add(new Inhouse("Part A", 10, 5, 1, 20, 1001));
+            Inventory.AllParts.Add(new Outsourced("Part B", 10, 5, 1, 20, "Compy"));
+            Inventory.AllParts.Add(new Outsourced("Part C", 10, 7, 1, 20, "Place"));
+            Inventory.AllParts.Add(new Outsourced("Part D", 12, 5, 1, 20, "Place"));
+            Inventory.AllParts.Add(new Outsourced("Part E", 15, 8, 1, 20, "Compy"));
+            Inventory.AllParts.Add(new Inhouse("Part F", 3, 5, 1, 20, 757));
+            Inventory.AllParts.Add(new Inhouse("Part G", 1, 5, 1, 20, 112));
+            Inventory.AllParts.Add(new Inhouse("Part H", 4, 5, 1, 20, 12));
+            Inventory.Products.Add(new Product("Thing1", 3, 5, 1, 20));
+            Inventory.Products.Add(new Product("Thing2", 1, 5, 1, 20));
+            Inventory.Products.Add(new Product("Thing3", 4, 5, 1, 20));
 
             PartsGridView.DataSource = Inventory.AllParts;
             ProdGridView.DataSource = Inventory.Products;

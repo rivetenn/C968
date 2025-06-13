@@ -11,8 +11,8 @@ namespace C968
     {
         public string PartCN { get; set; }
 
-        public Outsourced(int partID, string name, decimal price, int inStock, int min, int max, string notMID)
-        : base(partID, name, price, inStock, min, max)
+        public Outsourced(string name, decimal price, int inStock, int min, int max, string notMID)
+        : base(name, price, inStock, min, max)
         {
             PartCN = notMID;
         }
