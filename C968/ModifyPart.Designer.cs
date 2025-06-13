@@ -308,6 +308,7 @@ namespace C968
                 MPCN.Visible = true;
                 MPVaried.Text = outsourcedPart.PartCN;
             }
+            MPID.ReadOnly = true;
         }
         void CancelB_Click(object sender, EventArgs e)
         {
