@@ -383,7 +383,7 @@ namespace C968
             Part search;
             try
             {
-                search = Inventory.lookupPart(int.Parse(textBox2.Text));
+                search = Inventory.lookupPart(int.Parse(textBox1.Text));
             }
             catch (FormatException)
             {
