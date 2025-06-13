@@ -340,7 +340,7 @@ namespace C968
             int innit = int.Parse(ProdInv.Text);
             if (min > max || innit < min || innit > max)
             {
-                return;
+                Inventory.IncorNum();
             }
 
             var product = new Product(

@@ -334,7 +334,7 @@ namespace C968
             int innit = int.Parse(MPInv.Text);
             if (min > max || innit < min || innit > max)
             {
-                return;
+                Inventory.IncorNum();
             }
             if (RBIN.Checked)
             {

@@ -298,7 +298,7 @@ namespace C968
             int max = int.Parse(textMax.Text);
             int innit = int.Parse(TextInv.Text);
             if (min > max || innit < min || innit > max){
-                return;
+                Inventory.IncorNum();
             }
             
             if (RadHouse.Checked)

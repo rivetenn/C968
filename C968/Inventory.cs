@@ -83,5 +83,11 @@ namespace C968
             return MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes;
         }
 
+        public static void IncorNum()
+        {
+            MessageBox.Show("Inventory amount is invalid");
+            return;
+        }
+
     }
 }
