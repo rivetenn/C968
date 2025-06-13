@@ -329,22 +329,29 @@ namespace C968
         }
         void SaveB_Click(object sender, EventArgs e)
         {
-            int min = int.Parse(MPMin.Text);
-            int max = int.Parse(MPMax.Text);
-            int innit = int.Parse(MPInv.Text);
-            if (min > max || innit < min || innit > max)
+            try
             {
-                Inventory.IncorNum();
+                int min = int.Parse(MPMin.Text);
+                int max = int.Parse(MPMax.Text);
+                int innit = int.Parse(MPInv.Text);
+                if (min > max || innit < min || innit > max)
+                {
+                    Inventory.IncorNum();
+                }
+                if (RBIN.Checked)
+                {
+                    Inventory.updatePart(rowIndex, new Inhouse(MPName.Text, decimal.Parse(MPPrice.Text), int.Parse(MPInv.Text),
+                        int.Parse(MPMin.Text), int.Parse(MPMax.Text), int.Parse(MPVaried.Text)));
+                }
+                else
+                {
+                    Inventory.updatePart(rowIndex, new Outsourced(MPName.Text, decimal.Parse(MPPrice.Text), int.Parse(MPInv.Text),
+                        int.Parse(MPMin.Text), int.Parse(MPMax.Text), MPVaried.Text));
+                }
             }
-            if (RBIN.Checked)
+            catch (FormatException)
             {
-                Inventory.updatePart(rowIndex, new Inhouse(MPName.Text, decimal.Parse(MPPrice.Text), int.Parse(MPInv.Text), 
-                    int.Parse(MPMin.Text), int.Parse(MPMax.Text), int.Parse(MPVaried.Text)));
-            }
-            else
-            {
-                Inventory.updatePart(rowIndex, new Outsourced(MPName.Text, decimal.Parse(MPPrice.Text), int.Parse(MPInv.Text),
-                    int.Parse(MPMin.Text), int.Parse(MPMax.Text), MPVaried.Text));
+                MessageBox.Show("Invalid input");
             }
                 this.Close();
         }

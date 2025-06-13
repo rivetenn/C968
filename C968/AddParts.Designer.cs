@@ -294,37 +294,46 @@ namespace C968
 
         private void Save_Click(object sender, EventArgs e)
         {
-            int min = int.Parse(TextMin.Text);
-            int max = int.Parse(textMax.Text);
-            int innit = int.Parse(TextInv.Text);
-            if (min > max || innit < min || innit > max){
-                Inventory.IncorNum();
-            }
-            
-            if (RadHouse.Checked)
+            try
             {
-                Inventory.AllParts.Add(new Inhouse(
-                    TextName.Text,
-                    decimal.Parse(PriceText.Text),
-                    int.Parse(TextInv.Text),
-                    int.Parse(TextMin.Text),
-                    int.Parse(textMax.Text),
-                    int.Parse(TextVaried.Text)
-                ));
-                this.Close();
+                int min = int.Parse(TextMin.Text);
+                int max = int.Parse(textMax.Text);
+                int innit = int.Parse(TextInv.Text);
+                if (min > max || innit < min || innit > max)
+                {
+                    Inventory.IncorNum();
+                }
+
+                if (RadHouse.Checked)
+                {
+                    Inventory.AllParts.Add(new Inhouse(
+                        TextName.Text,
+                        decimal.Parse(PriceText.Text),
+                        int.Parse(TextInv.Text),
+                        int.Parse(TextMin.Text),
+                        int.Parse(textMax.Text),
+                        int.Parse(TextVaried.Text)
+                    ));
+
+                }
+                else if (Radout.Checked)
+                {
+                    Inventory.AllParts.Add(new Outsourced(
+                        TextName.Text,
+                        decimal.Parse(PriceText.Text),
+                        int.Parse(TextInv.Text),
+                        int.Parse(TextMin.Text),
+                        int.Parse(textMax.Text),
+                        TextVaried.Text
+                    ));
+
+                }
             }
-            else if (Radout.Checked)
+            catch (FormatException)
             {
-                Inventory.AllParts.Add(new Outsourced(
-                    TextName.Text,
-                    decimal.Parse(PriceText.Text),
-                    int.Parse(TextInv.Text),
-                    int.Parse(TextMin.Text),
-                    int.Parse(textMax.Text),
-                    TextVaried.Text
-                ));
-                this.Close();
+                MessageBox.Show("Invalid Input");
             }
+            this.Close();
         }
 
         private void StartUp(object sender, EventArgs e)

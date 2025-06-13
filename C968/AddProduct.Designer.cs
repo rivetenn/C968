@@ -335,17 +335,26 @@ namespace C968
 
         private void SaveB_Click(object sender, EventArgs e)
         {
-            int min = int.Parse(ProdMin.Text);
-            int max = int.Parse(ProdMax.Text);
-            int innit = int.Parse(ProdInv.Text);
-            if (min > max || innit < min || innit > max)
+            Product product;
+            try
             {
-                Inventory.IncorNum();
-            }
+                int min = int.Parse(ProdMin.Text);
+                int max = int.Parse(ProdMax.Text);
+                int innit = int.Parse(ProdInv.Text);
+                if (min > max || innit < min || innit > max)
+                {
+                    Inventory.IncorNum();
+                }
 
-            var product = new Product(
-                ProdName.Text, decimal.Parse(ProdPrice.Text), innit, min, max
-            );
+                product = new Product(
+                    ProdName.Text, decimal.Parse(ProdPrice.Text), innit, min, max
+                );
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Invalid Input");
+                return;
+            }
 
             foreach (var part in CurrAP)
             {

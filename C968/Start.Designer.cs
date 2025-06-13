@@ -419,25 +419,7 @@ namespace C968
             }
         }
 
-        private void NoSearch(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                PartsSearch.Enabled = false;
-            }
-            else
-            {
-                PartsSearch.Enabled = true;
-            }
-            if (textBox2.Text == "")
-            {
-                ProdSearch.Enabled = false;
-            }
-            else
-            {
-                ProdSearch.Enabled = true;
-            }
-        }
+
         private void StartUp(object sender, EventArgs e)
         {
             PartsGridView.AutoGenerateColumns = false;
@@ -445,8 +427,7 @@ namespace C968
             PartsGridView.MultiSelect = false;
             ProdGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProdGridView.MultiSelect = false;
-            PartsSearch.Enabled = false;
-            ProdSearch.Enabled = false;
+
 
             Inventory.AllParts.Add(new Inhouse("Part A", 10, 5, 1, 20, 1001));
             Inventory.AllParts.Add(new Outsourced("Part B", 10, 5, 1, 20, "Compy"));
@@ -465,8 +446,6 @@ namespace C968
 
             PartsGridView.CellFormatting += ThisThing;
 
-            textBox1.TextChanged += NoSearch;
-            textBox2.TextChanged += NoSearch;
         }
 
         public DataGridViewTextBoxColumn PartID;
