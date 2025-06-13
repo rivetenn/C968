@@ -356,7 +356,15 @@ namespace C968
         }
         private void ProdSearch_Click(object sender, EventArgs e)
         {
-            Product search = Inventory.lookupProduct(int.Parse(textBox2.Text));
+            Product search;
+            try { 
+                search = Inventory.lookupProduct(int.Parse(textBox2.Text));
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter a valid Product ID.");
+                return;
+            }
             if (search != null)
             {
                 foreach (DataGridViewRow row in ProdGridView.Rows)
@@ -372,7 +380,16 @@ namespace C968
         }
         private void PartsSearch_Click(object sender, EventArgs e)
         {
-            Part search = Inventory.lookupPart(int.Parse(textBox1.Text));
+            Part search;
+            try
+            {
+                search = Inventory.lookupPart(int.Parse(textBox2.Text));
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter a valid Part ID.");
+                return;
+            }
             if (search != null)
             {
                 foreach (DataGridViewRow row in PartsGridView.Rows)
@@ -401,13 +418,35 @@ namespace C968
                     e.Value = CN.PartCN;
             }
         }
-private void StartUp(object sender, EventArgs e)
+
+        private void NoSearch(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                PartsSearch.Enabled = false;
+            }
+            else
+            {
+                PartsSearch.Enabled = true;
+            }
+            if (textBox2.Text == "")
+            {
+                ProdSearch.Enabled = false;
+            }
+            else
+            {
+                ProdSearch.Enabled = true;
+            }
+        }
+        private void StartUp(object sender, EventArgs e)
         {
             PartsGridView.AutoGenerateColumns = false;
             PartsGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             PartsGridView.MultiSelect = false;
             ProdGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProdGridView.MultiSelect = false;
+            PartsSearch.Enabled = false;
+            ProdSearch.Enabled = false;
 
             Inventory.AllParts.Add(new Inhouse("Part A", 10, 5, 1, 20, 1001));
             Inventory.AllParts.Add(new Outsourced("Part B", 10, 5, 1, 20, "Compy"));
@@ -425,6 +464,9 @@ private void StartUp(object sender, EventArgs e)
             ProdGridView.DataSource = Inventory.Products;
 
             PartsGridView.CellFormatting += ThisThing;
+
+            textBox1.TextChanged += NoSearch;
+            textBox2.TextChanged += NoSearch;
         }
 
         public DataGridViewTextBoxColumn PartID;

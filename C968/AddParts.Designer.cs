@@ -325,9 +325,6 @@ namespace C968
                 ));
                 this.Close();
             }
-
-            
-
         }
 
         private void StartUp(object sender, EventArgs e)

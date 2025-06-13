@@ -77,7 +77,7 @@ namespace C968
         {
             AllParts[num] = part;
         }
-
+        
         public static bool YesNoV()
         {
             return MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes;

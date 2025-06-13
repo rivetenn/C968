@@ -379,6 +379,31 @@ namespace C968
                 CurrAP.Remove(selectedPart);
             }
         }
+        private void PartsSearch_Click(object sender, EventArgs e)
+        {
+            Part search;
+            try
+            {
+                search = Inventory.lookupPart(int.Parse(SearchText.Text));
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Please enter a valid Part ID.");
+                return;
+            }
+            if (search != null)
+            {
+                foreach (DataGridViewRow row in ProdAllParts.Rows)
+                {
+                    if (row.DataBoundItem is Part part && part.PartID == search.PartID)
+                    {
+                        row.Selected = true;
+                        ProdAllParts.FirstDisplayedScrollingRowIndex = row.Index;
+                        break;
+                    }
+                }
+            }
+        }
         private void StartUp(object sender, EventArgs e)
         {
             ProdAllParts.DataSource = Inventory.AllParts;
@@ -404,6 +429,8 @@ namespace C968
             ProdAssParts.DataSource = CurrAP;
             ProdAssParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProdAssParts.MultiSelect = false;
+
+            SearchB.Click += PartsSearch_Click;
 
         }
     }
